@@ -13,12 +13,13 @@
         android:layout_height="fill_parent"
         android:background="#ffef76"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="40dp"
             android:gravity="center"
-            android:text="这是登录界面"/>
+            android:text="这是登录界面"
+            android:textSize="40dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -34,21 +35,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/head"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="头像"
-                android:textSize="30dp" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#f00" />
+                android:layout_height="140dp"
+                android:background="@mipmap/background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/head"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|top"
+                    android:src="@mipmap/sigin" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="天天记账"
+                    android:textColor="#ffffff"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center|top"
+                    android:src="@mipmap/more"/>
+            </LinearLayout>
+
 
             <ListView
-                android:layout_width="match_parent"
-                android:layout_height="380dp" />
+                android:layout_width="fill_parent"
+                android:layout_height="340dp" />
 
             <ImageView
                 android:id="@+id/pic"
@@ -58,7 +83,6 @@
                 android:layout_marginRight="20dp"
                 android:background="#ffffff"
                 android:src="@mipmap/add" />
-
 
         </LinearLayout>
     </LinearLayout>

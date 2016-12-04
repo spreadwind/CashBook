@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -13,7 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.util.DBUtils;
@@ -21,7 +21,7 @@ import com.winorout.cashbook.util.DBUtils;
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
     private ImageView imageView; //记账图标
-    private TextView textView;   //登录点击处
+    private ImageView head;   //登录点击处
     private static int i = 0; //判断当前是Content还是Menu，0表示Content，1表示Menu。
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
@@ -99,7 +99,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         DBUtils.initCategory(db);
         initValues();
         imageView.setOnClickListener(this);
-        textView.setOnClickListener(this);
+        head.setOnClickListener(this);
         content.setOnTouchListener(this);
     }
 
@@ -122,7 +122,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content.getLayoutParams().width = screenWidth;
 
         imageView = (ImageView) findViewById(R.id.pic);
-        textView = (TextView)findViewById(R.id.head);
+        head = (ImageView) findViewById(R.id.head);
     }
 
     public void onClick(View v) {
@@ -279,6 +279,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
         @Override
         protected Integer doInBackground(Integer... speed) {
+            int j = 0;
             int leftMargin = menuParams.leftMargin;
             // 根据传入的速度来滚动界面，当滚动到达左边界或右边界时，跳出循环。
             while (true) {
@@ -293,7 +294,11 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 }
                 publishProgress(leftMargin);
                 // 为了要有滚动效果产生，每次循环使线程睡眠20毫秒，这样肉眼才能够看到滚动动画。
-                sleep(1);
+                j += 1;
+                if (j == 3) {
+                    sleep(1);
+                    j = 0;
+                }
             }
             if (speed[0] > 0) {
                 isMenuVisible = true;
