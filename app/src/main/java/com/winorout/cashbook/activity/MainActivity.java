@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.util.DBUtils;
@@ -22,6 +23,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     private ImageView imageView; //记账图标
     private ImageView head;   //登录点击处
+    private ImageView more;
     private static int i = 0; //判断当前是Content还是Menu，0表示Content，1表示Menu。
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
@@ -100,6 +102,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         initValues();
         imageView.setOnClickListener(this);
         head.setOnClickListener(this);
+        more.setOnClickListener(this);
         content.setOnTouchListener(this);
     }
 
@@ -112,8 +115,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content = findViewById(R.id.content);
         menu = findViewById(R.id.menu);
         menuParams = (LinearLayout.LayoutParams) menu.getLayoutParams();
-        // 将menu的宽度设置为屏幕宽度减去menuPadding
-        menuParams.width = screenWidth - menuPadding;
+        // 将menu的宽度设置为屏幕宽度减去menuPadding并减去200dp
+        menuParams.width = screenWidth - menuPadding - 200;
         // 左边缘的值赋值为menu宽度的负数
         leftEdge = -menuParams.width;
         // menu的leftMargin设置为左边缘的值，这样初始化时menu就变为不可见
@@ -123,6 +126,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
         imageView = (ImageView) findViewById(R.id.pic);
         head = (ImageView) findViewById(R.id.head);
+        more = (ImageView)findViewById(R.id.more);
     }
 
     public void onClick(View v) {
@@ -131,6 +135,9 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
             Intent intent = new Intent(MainActivity.this, Accounting.class);
             startActivity(intent);
             break;
+            case R.id.more :
+                Toast.makeText(this, "功能正在完善中...", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.head :
                 if(i == 0) {
                     scrollToMenu();
