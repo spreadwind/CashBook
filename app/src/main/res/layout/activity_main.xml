@@ -179,7 +179,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="bottom|right"
                 android:layout_marginRight="20dp"
-                android:background="#a6a6a6"
+                android:background="#9b9b9b"
                 android:src="@drawable/add"/>
 
         </LinearLayout>
