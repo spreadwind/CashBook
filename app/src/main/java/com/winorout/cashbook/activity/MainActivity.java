@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     private ImageView imageView; //记账图标
     private ImageView head;   //登录点击处
-    private ImageView more;
+    private ImageView more;  //扩展功能
     private static int i = 0; //判断当前是Content还是Menu，0表示Content，1表示Menu。
     private int titlekey = 0; //判断当前标题栏应显示状况
     private TextView title; //标题
