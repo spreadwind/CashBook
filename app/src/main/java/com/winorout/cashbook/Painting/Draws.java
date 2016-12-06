@@ -72,17 +72,17 @@ public class Draws extends View {
 
         canvas.drawCircle(0, 0, r, mPaint);
 
-        RectF oval = new RectF();
+        /*
+        * 绘制一个最外围的半个圆弧，为了美观，可以不写*/
 
+        RectF oval = new RectF();
         oval.top = -r - 6;
         oval.left = -r - 6;
         oval.right = 126;
         oval.bottom = 126;
-
         mPaint.setColor(Color.WHITE);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(6);
-
         canvas.drawArc(oval, 180, 180, false, mPaint);
 
         rArc = r * (1 - 2 * percent);//percent 0-1
@@ -91,16 +91,16 @@ public class Draws extends View {
 
         x = r * (float) Math.sin(angle);
 
+        /*
+        * 给绘制中间的波形进度设置路径*/
         mPath.addArc(rectF, 90 - (float) Math.toDegrees(angle),
                 (float) Math.toDegrees(angle) * 2);
-
-
         mPath.moveTo(-x, rArc);
-
         mPath.rQuadTo(x / 2, -r / 8, x, 0);
-
         mPath.rQuadTo(x / 2, r / 8, x, 0);
 
+        /*
+        * 为了给不同的进度时显示不同的圆环背景颜色*/
         if (percent < 0.6)
         {
             mPaint2.setColor(Color.CYAN);
@@ -113,10 +113,8 @@ public class Draws extends View {
         {
             mPaint2.setColor(Color.RED);
         }
-
-        canvas.drawPath(mPath, mPaint2);
-
-        mPath.rewind();
+        canvas.drawPath(mPath, mPaint2); //开始绘制波形进度
+        mPath.rewind(); //回收路径设置
 
 
         /**
@@ -140,6 +138,8 @@ public class Draws extends View {
         float total = (length - 1) * (-top + bottom)
                 + (-fontMetrics.ascent + fontMetrics.descent);
         float offset = total / 2 - bottom;
+        /*
+        * 绘制圆环中间的文字，为了精确的控制显示的位置*/
         for (int i = 0; i < length; i++) {
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.WHITE);
@@ -148,6 +148,8 @@ public class Draws extends View {
         }
     }
 
+    /*
+    * 设置圆环的进度*/
     public void setProgress(float percent) {
         //percent是从0到1；
         if (percent != 0) {
