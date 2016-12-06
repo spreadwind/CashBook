@@ -3,6 +3,7 @@ package com.winorout.cashbook.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.os.AsyncTask;
@@ -15,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.util.DBUtils;
@@ -25,6 +27,10 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private ImageView head;   //登录点击处
     private ImageView more;
     private static int i = 0; //判断当前是Content还是Menu，0表示Content，1表示Menu。
+    private int titlekey = 0; //判断当前标题栏应显示状况
+    private TextView title; //标题
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor editor;
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
      */
@@ -99,11 +105,21 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         SQLiteDatabase db = DBUtils.createDatabse(this, 1);
         //初始化类目表
         DBUtils.initCategory(db);
+        mSharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);//临时存储一些数据
+        editor = mSharedPreferences.edit();
         initValues();
+        if (mSharedPreferences.getInt("key", titlekey) == 0) {
+            title.setText("天天记账");
+        } else {
+            title.setText("账户余额");
+        }
+        /*
+        * 设置几个监听事件*/
         imageView.setOnClickListener(this);
         head.setOnClickListener(this);
         more.setOnClickListener(this);
         content.setOnTouchListener(this);
+        title.setOnClickListener(this);
     }
 
     /**
@@ -126,27 +142,38 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
         imageView = (ImageView) findViewById(R.id.pic);
         head = (ImageView) findViewById(R.id.head);
-        more = (ImageView)findViewById(R.id.more);
+        more = (ImageView) findViewById(R.id.more);
+        title = (TextView) findViewById(R.id.title);
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.pic :
-            Intent intent = new Intent(MainActivity.this, Accounting.class);
-            startActivity(intent);
-            break;
-            case R.id.more :
+            case R.id.pic:
+                Intent intent = new Intent(MainActivity.this, Accounting.class);
+                startActivity(intent);
+                break;
+            case R.id.more:
                 Toast.makeText(this, "功能正在完善中...", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.head :
-                if(i == 0) {
+            case R.id.head:
+                if (i == 0) {
                     scrollToMenu();
                     i = 1;
-                }
-                else {
+                } else {
                     scrollToContent();
                     i = 0;
                 }
+                break;
+            case R.id.title:
+                if (mSharedPreferences.getInt("key", titlekey) == 0) {
+                    title.setText("账户余额");
+                    titlekey = 1;
+                } else {
+                    title.setText("天天记账");
+                    titlekey = 0;
+                }
+                editor.putInt("key",titlekey);
+                editor.commit();
                 break;
             default:
                 break;
