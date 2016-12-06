@@ -3,7 +3,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#9f9f9f"
     android:orientation="horizontal">
 
 
@@ -54,7 +54,8 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
                     <TextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
@@ -68,7 +69,6 @@
                         android:background="@drawable/rect"/>
                     </LinearLayout>
 
-
                 <ImageView
                     android:id="@+id/more"
                     android:layout_width="30dp"
@@ -77,12 +77,24 @@
                     android:layout_marginTop="15dp"
                     android:layout_gravity="center|top"
                     android:src="@mipmap/more"/>
+
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#ffffff"/>
+
+            <com.winorout.cashbook.Painting.Draws
+                android:layout_marginTop="-80dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp"/>
 
 
             <ListView
                 android:layout_width="fill_parent"
-                android:layout_height="340dp" />
+                android:layout_height="270dp" />
 
             <ImageView
                 android:id="@+id/pic"
@@ -90,8 +102,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="bottom|right"
                 android:layout_marginRight="20dp"
-                android:background="#ffffff"
-                android:src="@mipmap/add" />
+                android:background="#9f9f9f"
+                android:src="@drawable/add" />
 
         </LinearLayout>
     </LinearLayout>
