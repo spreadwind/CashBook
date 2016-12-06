@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -13,15 +12,18 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.util.DBUtils;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
+
+    private LinearLayout user;
+    private Boolean isLogin;
 
     private ImageView imageView; //记账图标
     private ImageView head;   //登录点击处
@@ -101,7 +103,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-//创建数据库
+        //创建数据库
         SQLiteDatabase db = DBUtils.createDatabse(this, 1);
         //初始化类目表
         DBUtils.initCategory(db);
@@ -113,13 +115,19 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         } else {
             title.setText("账户余额");
         }
-        /*
-        * 设置几个监听事件*/
+        initEvent();
+
+    }
+
+    private void initEvent() {
+    /*
+    * 设置几个监听事件*/
         imageView.setOnClickListener(this);
         head.setOnClickListener(this);
         more.setOnClickListener(this);
         content.setOnTouchListener(this);
         title.setOnClickListener(this);
+        user.setOnClickListener(this);
     }
 
     /**
@@ -144,6 +152,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         head = (ImageView) findViewById(R.id.head);
         more = (ImageView) findViewById(R.id.more);
         title = (TextView) findViewById(R.id.title);
+
+        user = (LinearLayout) findViewById(R.id.user);
     }
 
     public void onClick(View v) {
@@ -172,8 +182,12 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                     title.setText("天天记账");
                     titlekey = 0;
                 }
-                editor.putInt("key",titlekey);
+                editor.putInt("key", titlekey);
                 editor.commit();
+                break;
+            case R.id.user:
+                Intent intent1 = new Intent(MainActivity.this, Accounting.class);
+                startActivity(intent1);
                 break;
             default:
                 break;
