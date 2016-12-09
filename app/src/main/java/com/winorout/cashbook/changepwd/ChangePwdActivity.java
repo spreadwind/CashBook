@@ -38,6 +38,7 @@ public class ChangePwdActivity extends Activity implements IChangePwdView, View.
 
     private void initView() {
         title = (TextView) findViewById(R.id.title);
+        title.setText("密码修改");
         userPassword = (TextView) findViewById(R.id.user_password);
         email = (TextView) findViewById(R.id.email);
         back = (ImageView) findViewById(R.id.back);
@@ -54,6 +55,7 @@ public class ChangePwdActivity extends Activity implements IChangePwdView, View.
 
     @Override
     public void navigateToLogin() {
+        Toast.makeText(this, "密码修改成功", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }

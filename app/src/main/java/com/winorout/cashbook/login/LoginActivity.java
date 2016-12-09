@@ -42,7 +42,7 @@ public class LoginActivity extends Activity implements ILoginView, View.OnClickL
 
     private void initView() {
         title = (TextView) findViewById(R.id.title);
-        title.setText("登录");
+        title.setText("用户登录");
         userName = (TextView) findViewById(R.id.user_name);
         userPassword = (TextView) findViewById(R.id.user_password);
         changePassword = (TextView) findViewById(R.id.change_password);
@@ -60,6 +60,7 @@ public class LoginActivity extends Activity implements ILoginView, View.OnClickL
 
     @Override
     public void navigateToHome() {
+        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -74,6 +75,7 @@ public class LoginActivity extends Activity implements ILoginView, View.OnClickL
                 break;
             case R.id.change_password:
                 startActivity(new Intent(this, ChangePwdActivity.class));
+                break;
             case R.id.back:
                 finish();
                 break;

@@ -33,7 +33,7 @@ public class RegisterActivity extends Activity implements IRegisterView, View.On
 
     private void initView() {
         title = (TextView) findViewById(R.id.title);
-        title.setText("注册");
+        title.setText("用户注册");
         userName = (TextView) findViewById(R.id.user_name);
         userPassword = (TextView) findViewById(R.id.user_password);
         emali = (TextView) findViewById(R.id.email);
@@ -69,6 +69,7 @@ public class RegisterActivity extends Activity implements IRegisterView, View.On
 
     @Override
     public void navigateToHome() {
+        Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
