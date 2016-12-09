@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
-import com.winorout.cashbook.util.DBUtils;
+import com.winorout.cashbook.login.LoginActivity;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
@@ -103,10 +102,6 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        //创建数据库
-        SQLiteDatabase db = DBUtils.createDatabse(this, 1);
-        //初始化类目表
-        DBUtils.initCategory(db);
         mSharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);//临时存储一些数据
         editor = mSharedPreferences.edit();
         initValues();
@@ -186,7 +181,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 editor.commit();
                 break;
             case R.id.user:
-                Intent intent1 = new Intent(MainActivity.this, Accounting.class);
+                Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent1);
                 break;
             default:

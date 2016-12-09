@@ -17,24 +17,8 @@ import java.util.List;
 
 public class DBUtils {
 
-    //数据库名
-    public static final String DATABASE_NAME = "CashBook.db";
-
     //所有分类
     public static List<Category> categoryList = new ArrayList<>();
-
-    /**
-     * 创建数据库
-     *
-     * @param context 上下文
-     * @param version 数据库版本
-     * @return 成功创建的数据库
-     */
-    public static SQLiteDatabase createDatabse(Context context, int version) {
-        DatabaseHelper dbHelper = new DatabaseHelper(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        return db;
-    }
 
     /**
      * 初始化分类表，将所有默认分类存入其中

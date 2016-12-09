@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.winorout.cashbook">
+          package="com.winorout.cashbook">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,12 +11,24 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Accounting"></activity>
+        <activity android:name=".activity.Accounting"/>
+        <activity
+            android:name=".login.LoginActivity"
+            android:label="@string/title_activity_login">
+        </activity>
+        <activity
+            android:name=".register.RegisterActivity"
+            android:label="@string/title_activity_register">
+        </activity>
+        <activity
+            android:name=".changepwd.ChangePwdActivity"
+            android:label="@string/title_activity_change_password">
+        </activity>
     </application>
 
 </manifest>

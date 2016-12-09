@@ -9,6 +9,7 @@ public class User {
     private int id;
     private String userName;		//用户名
     private String userPassword;	//密码
+    private String email;       	//密保邮箱
     private byte[] userPhoto;		//用户头像
     private double totalAssets;		//总资产
     private double generalIncome;	//总收入
@@ -36,6 +37,14 @@ public class User {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public byte[] getUserPhoto() {

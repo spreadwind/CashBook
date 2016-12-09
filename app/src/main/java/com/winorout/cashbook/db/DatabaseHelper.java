@@ -15,9 +15,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public static final String CREATE_USER = "create table User ("
             + "id integer primary key autoincrement,"
-            + "userName text,"
+            + "userName text UNIQUE,"
             + "userPassword text,"
             + "userPhoto blob,"
+            + "email text,"
             + "totalAssets real,"
             + "generalIncome real,"
             + "overallCost real)";
@@ -30,7 +31,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "categoryType text,"
             + "categoryName text,"
             + "categoryDesc text,"
-            + "categoryPic blob)";
+            + "categoryPic blob,"
+            + "UNIQUE (categoryType, categoryName))";
 
     /**
      * 创建财务表语句

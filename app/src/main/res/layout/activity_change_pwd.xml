@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_bar"/>
+
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/password"
+        android:hint="请输入新的密码"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:paddingLeft="0dp"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/email"
+        android:hint="请输入密保邮箱"
+        android:inputType="textEmailAddress"
+        android:maxLength="20"
+        android:padding="1dp"
+        android:paddingLeft="0dp"/>
+
+    <Button
+        android:id="@+id/change_password"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="修改"/>
+
+</LinearLayout>
