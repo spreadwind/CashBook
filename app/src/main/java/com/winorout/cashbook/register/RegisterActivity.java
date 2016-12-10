@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
-import com.winorout.cashbook.activity.MainActivity;
+import com.winorout.cashbook.main.MainActivity;
 
 public class RegisterActivity extends Activity implements IRegisterView, View.OnClickListener {
 

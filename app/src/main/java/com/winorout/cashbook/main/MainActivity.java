@@ -1,4 +1,4 @@
-package com.winorout.cashbook.activity;
+package com.winorout.cashbook.main;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
+import com.winorout.cashbook.accounting.AccountingActivity;
 import com.winorout.cashbook.login.LoginActivity;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
@@ -154,7 +155,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.pic:
-                Intent intent = new Intent(MainActivity.this, Accounting.class);
+                Intent intent = new Intent(MainActivity.this, AccountingActivity.class);
                 startActivity(intent);
                 break;
             case R.id.more:

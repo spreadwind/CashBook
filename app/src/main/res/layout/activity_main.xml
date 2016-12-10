@@ -163,7 +163,7 @@
                 android:layout_height="5dp"
                 android:background="#ffffff"/>
 
-            <com.winorout.cashbook.Painting.Draws
+            <com.winorout.cashbook.widget.Draws
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
