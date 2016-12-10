@@ -24,6 +24,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     private LinearLayout user;
     private Boolean isLogin;
+    private TextView userNameText;
 
     private ImageView imageView; //记账图标
     private ImageView head;   //登录点击处
@@ -115,6 +116,17 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isLogin = mSharedPreferences.getBoolean("isLogin", false);
+        if (isLogin) {
+            userNameText.setText(mSharedPreferences.getString("userName", "用户名"));
+        } else {
+            userNameText.setText("点击登录");
+        }
+    }
+
     private void initEvent() {
     /*
     * 设置几个监听事件*/
@@ -150,6 +162,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         title = (TextView) findViewById(R.id.title);
 
         user = (LinearLayout) findViewById(R.id.user);
+        userNameText = (TextView) findViewById(R.id.user_name);
     }
 
     public void onClick(View v) {
@@ -182,8 +195,12 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 editor.commit();
                 break;
             case R.id.user:
-                Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent1);
+                if (isLogin) {
+                    Toast.makeText(this, "打开个人中心，待完善。。。", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent1);
+                }
                 break;
             default:
                 break;

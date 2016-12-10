@@ -1,5 +1,7 @@
 package com.winorout.cashbook.login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -11,6 +13,12 @@ import static com.winorout.cashbook.MyApplication.dbHelper;
 
 public class LoginModel implements ILoginModel {
 
+    private Context mContext;
+
+    public LoginModel(Context context) {
+        mContext = context;
+    }
+
     @Override
     public void login(String userName, String userPassword, OnLoginListener listener) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -18,6 +26,11 @@ public class LoginModel implements ILoginModel {
         if (result.moveToFirst()) {
             String password = result.getString(result.getColumnIndex("userPassword"));
             if (password.equals(userPassword)) {
+                SharedPreferences.Editor editor = mContext.getSharedPreferences("loginUser", Context.MODE_PRIVATE).edit();
+                editor.putBoolean("isLogin", true);
+                editor.putString("userName", userName);
+                editor.putString("userPassword", userPassword);
+                editor.commit();
                 listener.onSuccess();
             } else {
                 listener.onFailed("密码输入错误");
@@ -29,4 +42,5 @@ public class LoginModel implements ILoginModel {
             db.close();
         }
     }
+
 }

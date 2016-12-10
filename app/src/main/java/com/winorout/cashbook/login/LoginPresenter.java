@@ -13,7 +13,7 @@ public class LoginPresenter implements ILoginPresenter, ILoginModel.OnLoginListe
 
     public LoginPresenter(ILoginView view) {
         mView = view;
-        mLoginModel = new LoginModel();
+        mLoginModel = new LoginModel(((LoginActivity)mView).getApplicationContext());
     }
 
     @Override
