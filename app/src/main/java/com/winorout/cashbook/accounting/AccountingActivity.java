@@ -40,6 +40,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
     }
 
     public void initView() {
+        type_amount = (TextView)findViewById(R.id.type_amount);
         clean_btn = (Button) findViewById(R.id.clean_btn);
         income_btn = findViewById(R.id.income_layout);
         expense_btn = findViewById(R.id.expense_layout);
@@ -79,6 +80,9 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                 break;
 
             case R.id.clean_btn:
+                type_amount.setText("0.00");
+                break;
+
 
 
 
