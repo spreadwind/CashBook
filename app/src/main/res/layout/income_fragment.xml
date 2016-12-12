@@ -30,15 +30,15 @@
 
             <Button
                 android:id="@+id/salary_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/salary_png"/>
 
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:textColor="#ffff"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="工资"/>
@@ -55,15 +55,15 @@
 
             <Button
                 android:id="@+id/red_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/red_png"/>
 
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:textColor="#ffff"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="红包"/>
@@ -80,15 +80,15 @@
 
             <Button
                 android:id="@+id/bonus_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/bonus_png"/>
 
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:textColor="#ffff"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="奖金"/>
@@ -105,15 +105,15 @@
 
             <Button
                 android:id="@+id/interest_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/interest_png"/>
 
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:textColor="#ffff"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="利息"/>
@@ -130,15 +130,15 @@
 
             <Button
                 android:id="@+id/pension_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/pension_png"/>
 
 
             <TextView
-
-                android:layout_width="match_parent"
+                android:textColor="#ffff"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="养老金"/>
@@ -188,15 +188,16 @@
 
             <Button
                 android:id="@+id/life_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/life_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="生活"/>
@@ -212,15 +213,16 @@
 
             <Button
                 android:id="@+id/extra_income_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/extra_income_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="外快"/>
@@ -236,15 +238,16 @@
 
             <Button
                 android:id="@+id/investment_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/investment_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="投资"/>
@@ -261,15 +264,16 @@
 
             <Button
                 android:id="@+id/income_other_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/other_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="其他"/>

@@ -30,15 +30,16 @@
 
             <Button
                 android:id="@+id/cloth_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/cloth_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="衣服"/>
@@ -55,15 +56,16 @@
 
             <Button
                 android:id="@+id/communication_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/communication_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="通讯"/>
@@ -80,15 +82,16 @@
 
             <Button
                 android:id="@+id/daily_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/daily"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="日用品"/>
@@ -105,15 +108,16 @@
 
             <Button
                 android:id="@+id/live_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/live_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="生活"/>
@@ -130,15 +134,16 @@
 
             <Button
                 android:id="@+id/food_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/food_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="食品"/>
@@ -183,15 +188,16 @@
 
             <Button
                 android:id="@+id/friendship_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/friendship_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="人情"/>
@@ -208,15 +214,16 @@
 
             <Button
                 android:id="@+id/house_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/house_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="房租"/>
@@ -233,15 +240,16 @@
 
             <Button
                 android:id="@+id/medicine_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/medicine_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="医药"/>
@@ -258,15 +266,16 @@
 
             <Button
                 android:id="@+id/traffic_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/traffic_png"/>
 
 
             <TextView
+                android:textColor="#ffff"
 
-                android:layout_width="match_parent"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="交通"/>
@@ -283,14 +292,15 @@
 
             <Button
                 android:id="@+id/other_btn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/other_png"/>
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:textColor="#ffff"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
                 android:gravity="center_horizontal"
                 android:text="其他"/>
