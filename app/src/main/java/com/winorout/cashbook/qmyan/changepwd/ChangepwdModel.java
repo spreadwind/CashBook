@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import static com.winorout.cashbook.MyApplication.dbHelper;
+import static com.winorout.cashbook.common.MyApplication.dbHelper;
 
 /**
  * Created by micheal-yan on 2016/12/9.

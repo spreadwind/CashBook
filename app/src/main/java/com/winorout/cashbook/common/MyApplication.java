@@ -1,4 +1,4 @@
-package com.winorout.cashbook;
+package com.winorout.cashbook.common;
 
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
