@@ -1,4 +1,4 @@
-package com.winorout.cashbook.login;
+package com.winorout.cashbook.qmyan.register;
 
 import android.text.TextUtils;
 
@@ -6,18 +6,18 @@ import android.text.TextUtils;
  * Created by micheal-yan on 2016/12/9.
  */
 
-public class LoginPresenter implements ILoginPresenter, ILoginModel.OnLoginListener {
+public class RegisterPresenter implements IRegisterPresenter, IRegisterModel.OnRegisterListener {
 
-    private ILoginView mView;
-    private LoginModel mLoginModel;
+    private IRegisterView mView;
+    private RegisterModel mRegisterModel;
 
-    public LoginPresenter(ILoginView view) {
+    public RegisterPresenter(IRegisterView view) {
         mView = view;
-        mLoginModel = new LoginModel(((LoginActivity)mView).getApplicationContext());
+        mRegisterModel = new RegisterModel();
     }
 
     @Override
-    public void login(String userName, String userPassword) {
+    public void register(String userName, String userPassword, String email) {
         if (mView != null) {
             if (TextUtils.isEmpty(userName)) {
                 mView.onError("用户名不能为空");
@@ -25,8 +25,11 @@ public class LoginPresenter implements ILoginPresenter, ILoginModel.OnLoginListe
             } else if (TextUtils.isEmpty(userPassword)) {
                 mView.onError("密码不能为空");
                 return;
+            } else if (TextUtils.isEmpty(email)) {
+                mView.onError("密保邮箱不能为空");
+                return;
             } else {
-                mLoginModel.login(userName, userPassword, this);
+                mRegisterModel.register(userName, userPassword, email, this);
             }
         }
     }
@@ -47,8 +50,6 @@ public class LoginPresenter implements ILoginPresenter, ILoginModel.OnLoginListe
 
     @Override
     public void onFailed(String msg) {
-        if (mView != null) {
-            mView.onError(msg);
-        }
+        mView.onError(msg);
     }
 }

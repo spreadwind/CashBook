@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.accounting.AccountingActivity;
-import com.winorout.cashbook.login.LoginActivity;
+import com.winorout.cashbook.qmyan.login.LoginActivity;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 

@@ -1,12 +1,10 @@
-package com.winorout.cashbook.util;
+package com.winorout.cashbook.common.util;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.winorout.cashbook.db.DatabaseHelper;
-import com.winorout.cashbook.model.Category;
+import com.winorout.cashbook.common.model.Category;
 
 import java.util.ArrayList;
 import java.util.List;

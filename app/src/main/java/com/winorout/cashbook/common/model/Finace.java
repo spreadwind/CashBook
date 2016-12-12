@@ -1,4 +1,4 @@
-package com.winorout.cashbook.model;
+package com.winorout.cashbook.common.model;
 
 import java.util.Date;
 

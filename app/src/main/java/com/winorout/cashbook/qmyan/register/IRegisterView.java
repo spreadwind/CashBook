@@ -1,10 +1,10 @@
-package com.winorout.cashbook.login;
+package com.winorout.cashbook.qmyan.register;
 
 /**
  * Created by micheal-yan on 2016/12/9.
  */
 
-public interface ILoginView {
+public interface IRegisterView {
 
     void onError(String msg);
 

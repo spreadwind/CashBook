@@ -1,4 +1,4 @@
-package com.winorout.cashbook.login;
+package com.winorout.cashbook.qmyan.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
-import com.winorout.cashbook.changepwd.ChangePwdActivity;
-import com.winorout.cashbook.register.RegisterActivity;
+import com.winorout.cashbook.qmyan.changepwd.ChangePwdActivity;
+import com.winorout.cashbook.qmyan.register.RegisterActivity;
 
 public class LoginActivity extends Activity implements ILoginView, View.OnClickListener {
 

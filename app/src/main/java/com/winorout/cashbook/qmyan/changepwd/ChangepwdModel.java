@@ -1,4 +1,4 @@
-package com.winorout.cashbook.changepwd;
+package com.winorout.cashbook.qmyan.changepwd;
 
 import android.content.ContentValues;
 import android.database.Cursor;

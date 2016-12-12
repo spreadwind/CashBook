@@ -1,4 +1,4 @@
-package com.winorout.cashbook.changepwd;
+package com.winorout.cashbook.qmyan.changepwd;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
-import com.winorout.cashbook.login.LoginActivity;
+import com.winorout.cashbook.qmyan.login.LoginActivity;
 
 public class ChangePwdActivity extends Activity implements IChangePwdView, View.OnClickListener {
 

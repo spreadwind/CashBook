@@ -18,15 +18,15 @@
         </activity>
         <activity android:name=".accounting.AccountingActivity"/>
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".qmyan.login.LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
         <activity
-            android:name=".register.RegisterActivity"
+            android:name=".qmyan.register.RegisterActivity"
             android:label="@string/title_activity_register">
         </activity>
         <activity
-            android:name=".changepwd.ChangePwdActivity"
+            android:name=".qmyan.changepwd.ChangePwdActivity"
             android:label="@string/title_activity_change_password">
         </activity>
     </application>

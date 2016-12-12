@@ -1,6 +1,5 @@
-package com.winorout.cashbook.register;
+package com.winorout.cashbook.qmyan.register;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
-import com.winorout.cashbook.main.MainActivity;
 
 public class RegisterActivity extends Activity implements IRegisterView, View.OnClickListener {
 

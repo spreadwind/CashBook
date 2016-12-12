@@ -1,4 +1,4 @@
-package com.winorout.cashbook.model;
+package com.winorout.cashbook.common.model;
 
 /**
  * Created by micheal-yan on 2016/12/2.

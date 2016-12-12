@@ -3,8 +3,8 @@ package com.winorout.cashbook;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.winorout.cashbook.db.DatabaseHelper;
-import com.winorout.cashbook.util.DBUtils;
+import com.winorout.cashbook.common.db.DatabaseHelper;
+import com.winorout.cashbook.common.util.DBUtils;
 
 /**
  * Created by micheal-yan on 2016/12/9.
