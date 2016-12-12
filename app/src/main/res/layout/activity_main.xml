@@ -165,6 +165,7 @@
                 android:background="#ffffff"/>
 
             <com.winorout.cashbook.widget.Draws
+                android:id="@+id/settarget"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"

@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.accounting.AccountingActivity;
 import com.winorout.cashbook.qmyan.login.LoginActivity;
+import com.winorout.cashbook.widget.Draws;
+import com.winorout.cashbook.wxwan.Target;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
@@ -26,6 +28,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private Boolean isLogin;
     private TextView userNameText;
 
+    private Draws settarget; //月预算设置
     private ImageView imageView; //记账图标
     private ImageView head;   //登录点击处
     private ImageView more;  //扩展功能
@@ -136,6 +139,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content.setOnTouchListener(this);
         title.setOnClickListener(this);
         user.setOnClickListener(this);
+        settarget.setOnClickListener(this);
     }
 
     /**
@@ -147,8 +151,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content = findViewById(R.id.content);
         menu = findViewById(R.id.menu);
         menuParams = (LinearLayout.LayoutParams) menu.getLayoutParams();
-        // 将menu的宽度设置为屏幕宽度减去menuPadding并减去200dp
-        menuParams.width = screenWidth - menuPadding - 200;
+        // 将menu的宽度设置为屏幕宽度减去menuPadding并减去8分之一界面宽度
+        menuParams.width = screenWidth - menuPadding - screenWidth/8;
         // 左边缘的值赋值为menu宽度的负数
         leftEdge = -menuParams.width;
         // menu的leftMargin设置为左边缘的值，这样初始化时menu就变为不可见
@@ -163,6 +167,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
         user = (LinearLayout) findViewById(R.id.user);
         userNameText = (TextView) findViewById(R.id.user_name);
+
+        settarget = (Draws)findViewById(R.id.settarget);
     }
 
     public void onClick(View v) {
@@ -202,6 +208,9 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                     startActivity(intent1);
                 }
                 break;
+            case R.id.settarget:
+                Intent intent1 = new Intent(MainActivity.this, Target.class);
+                startActivity(intent1);
             default:
                 break;
         }
