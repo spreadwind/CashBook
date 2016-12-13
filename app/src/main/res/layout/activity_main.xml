@@ -18,14 +18,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/user"
                 android:layout_width="0dp"
-                android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="3"
                 android:orientation="horizontal">
 
                 <com.winorout.cashbook.widget.CircleImageView
@@ -41,50 +42,53 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="7dp"
                     android:layout_marginTop="7dp"
                     android:text="点击登录"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
+                    android:textColor="#e6e6e6"/>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/synchronize"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_marginTop="15dp"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
+                    android:layout_marginTop="17dp"
                     android:src="@drawable/synchronize"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#e6e6e6"
                     android:padding="1dp"
-                    android:text="同步"/>
+                    android:text="同步"
+                    android:textColor="#e6e6e6"/>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/setting"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_marginTop="15dp"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
+                    android:layout_marginTop="17dp"
                     android:src="@drawable/setting"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="设置"
                     android:padding="1dp"
+                    android:text="设置"
                     android:textColor="#e6e6e6"/>
             </LinearLayout>
 
@@ -96,59 +100,73 @@
             android:layout_height="0.1dp"
             android:background="#fff"/>
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:layout_marginTop="15dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="总收入："/>
+            <TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0.00"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总收入"
+                    android:textColor="#e6e6e6"
+                    android:textSize="14dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总支出"
+                    android:textColor="#e6e6e6"
+                    android:textSize="14dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="总支出："/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="总结余"
+                    android:textColor="#e6e6e6"
+                    android:textSize="14dp"/>
+            </TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0.00"/>
-        </LinearLayout>
+            <TableRow
+                android:paddingTop="3dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.00"
+                    android:textColor="#e6e6e6"
+                    android:textSize="14dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="总结余："/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.00"
+                    android:textColor="#e6e6e6"
+                    android:textSize="14dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0.00"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.00"
+                    android:textColor="#e6e6e6"
+                    android:textSize="14dp"/>
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 
