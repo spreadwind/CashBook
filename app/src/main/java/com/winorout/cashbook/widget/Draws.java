@@ -73,17 +73,17 @@ public class Draws extends View {
         canvas.drawCircle(0, 0, r, mPaint);
 
         /*
-        * 绘制一个最外围的半个圆弧，为了美观，可以不写*/
-
-        RectF oval = new RectF();
-        oval.top = -r - 6;
-        oval.left = -r - 6;
-        oval.right = 126;
-        oval.bottom = 126;
-        mPaint.setColor(Color.WHITE);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(6);
-        canvas.drawArc(oval, 180, 180, false, mPaint);
+//        * 绘制一个最外围的半个圆弧，为了美观，可以不写*/
+//
+//        RectF oval = new RectF();
+//        oval.top = -r - 6;
+//        oval.left = -r - 6;
+//        oval.right = 126;
+//        oval.bottom = 126;
+//        mPaint.setColor(Color.WHITE);
+//        mPaint.setStyle(Paint.Style.STROKE);
+//        mPaint.setStrokeWidth(6);
+//        canvas.drawArc(oval, 180, 180, false, mPaint);
 
         rArc = r * (1 - 2 * percent);//percent 0-1
 
