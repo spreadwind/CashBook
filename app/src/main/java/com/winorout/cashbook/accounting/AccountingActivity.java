@@ -3,15 +3,26 @@ package com.winorout.cashbook.accounting;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.winorout.cashbook.R;
+
+import java.util.Date;
+
+import static com.winorout.cashbook.common.MyApplication.dbHelper;
 
 /**
  * Created by ZhangMin on 2016/12/04.
@@ -21,6 +32,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
     private ExpenseFragment expenseFragment = new ExpenseFragment();
     private IncomeFragment incomeFragment = new IncomeFragment();
 
+    private Button save_btn;
     private LinearLayout income_btn;
     private LinearLayout expense_btn;
     private LinearLayout back_btn;
@@ -41,9 +53,15 @@ public class AccountingActivity extends Activity implements View.OnClickListener
     private TextView type_amount;   // 计算结果
     private double type_acount_init = 0.0;   // 计算过程需要用到的结果，最近一个符号后的结果，而不是当前的结果
     private TextView type_calculate;
-    private int add_time = 0;           //假发的次数
+    private int add_time = 0;           //加法的次数
     private int minus_time = 0;
     private int or = 0;     //判断加法或者减法
+    private int inorout = 1;
+    private String categoryType;
+    private String categoryName;
+    private TextView type_word;
+    private ImageView type_pic;
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -62,7 +80,10 @@ public class AccountingActivity extends Activity implements View.OnClickListener
     }
 
     public void initView() {
+        type_pic = (ImageView)findViewById(R.id.type_pic);
+        type_word = (TextView)findViewById(R.id.type_word);
         zero_btn = (Button) findViewById(R.id.zero_btn);
+        save_btn = (Button) findViewById(R.id.save_btn);
         add_btn = (Button) findViewById(R.id.add_btn);
         minus_btn = (Button) findViewById(R.id.minus_btn);
         one_btn = (Button) findViewById(R.id.one_btn);
@@ -81,11 +102,14 @@ public class AccountingActivity extends Activity implements View.OnClickListener
         income_btn = (LinearLayout) findViewById(R.id.income_layout);
         expense_btn = (LinearLayout) findViewById(R.id.expense_layout);
         back_btn = (LinearLayout) findViewById(R.id.back_btn);
+
+        sharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);
     }
 
 
     public void initEvent() {
         clean_btn.setOnClickListener(this);
+        save_btn.setOnClickListener(this);
         income_btn.setOnClickListener(this);
         expense_btn.setOnClickListener(this);
         back_btn.setOnClickListener(this);
@@ -146,6 +170,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     transaction.show(incomeFragment);
                     transaction.hide(expenseFragment);
                     transaction.commit();
+                    inorout = 2;
                     break;
 
                 case R.id.expense_layout:
@@ -154,6 +179,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     transaction1.show(expenseFragment);
                     transaction1.hide(incomeFragment);
                     transaction1.commit();
+                    inorout = 1;
                     break;
                 case R.id.back_btn:
                     finish();
@@ -407,6 +433,36 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     minus_time++;
                     or = 1;
                     type_acount_init = Double.parseDouble(type_amount.getText().toString());
+                    break;
+
+                case R.id.save_btn:
+                    if(inorout == 1){
+                        categoryType = "支出";
+                    }else{
+                        categoryType = "收入";
+                    }
+
+                    categoryName = type_word.getText().toString();
+                    int userId = sharedPreferences.getInt("userId", -1);
+                    // TODO: 2016/12/13 判断
+                    if(userId == -1){
+                        Toast.makeText(getApplicationContext(),"错误",Toast.LENGTH_SHORT).show();
+                    }else {
+                        SQLiteDatabase db = dbHelper.getWritableDatabase();
+                        ContentValues values = new ContentValues();
+                        values.put("userId", userId);
+                        values.put("categoryType", categoryType);
+                        values.put("categoryName", categoryName);
+                        values.put("typePic",sharedPreferences.getInt("typePic", R.drawable.bonus_png));
+                        Log.d("TAG", "typePic " + sharedPreferences.getInt("typePic", R.drawable.bonus_png));
+                        Date date = new Date();
+                        Log.d("TAG", "date.toString: " + date.toString());
+                        values.put("date", date.toString());
+                        db.insert("Finace", null, values);
+                        db.close();
+                    }
+
+
                     break;
 
                 default:

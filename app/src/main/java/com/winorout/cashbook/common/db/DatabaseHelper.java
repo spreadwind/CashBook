@@ -24,23 +24,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "overallCost real)";
 
     /**
-     * 创建类目表语句
-     */
-    public static final String CREATE_CATEGORY = "create table Category ("
-            + "id integer primary key autoincrement,"
-            + "categoryType text,"
-            + "categoryName text,"
-            + "categoryDesc text,"
-            + "categoryPic blob,"
-            + "UNIQUE (categoryType, categoryName))";
-
-    /**
      * 创建财务表语句
      */
     public static final String CREATE_FINACE = "create table Finace ("
             + "id integer primary key autoincrement,"
             + "userId integer,"
-            + "categoryId integer,"
+            + "categoryType text,"
+            + "categoryName text,"
+            + "typePic int,"
             + "amount real,"
             + "date text,"
             + "note text)";
@@ -52,7 +43,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_USER);
-        db.execSQL(CREATE_CATEGORY);
         db.execSQL(CREATE_FINACE);
     }
 

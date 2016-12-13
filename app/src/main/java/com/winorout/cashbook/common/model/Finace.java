@@ -10,7 +10,8 @@ public class Finace {
 
     private int id;
     private int userId;			//用户Id
-    private int categoryId;		//类目Id
+    private String categoryType;//收支类型
+    private String categoryName;//类型名称
     private double amount;		//金额
     private Date date;			//日期
     private String note;		//备注
@@ -29,14 +30,6 @@ public class Finace {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public double getAmount() {
@@ -61,5 +54,21 @@ public class Finace {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getCategoryType() {
+        return categoryType;
+    }
+
+    public void setCategoryType(String categoryType) {
+        this.categoryType = categoryType;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

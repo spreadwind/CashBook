@@ -1,6 +1,8 @@
 package com.winorout.cashbook.accounting;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,8 @@ public class IncomeFragment extends Fragment implements View.OnClickListener {
     private Button extra_income_btn;
     private Button investment_btn;
     private Button income_other_btn;
+    private int typePic;
+    private SharedPreferences.Editor mEditor;
 
 
     @Override
@@ -54,7 +58,7 @@ public class IncomeFragment extends Fragment implements View.OnClickListener {
         investment_btn = (Button) view.findViewById(R.id.investment_btn);
         income_other_btn = (Button) view.findViewById(R.id.income_other_btn);
 
-
+        mEditor = getActivity().getApplicationContext().getSharedPreferences("loginUser", Context.MODE_PRIVATE).edit();
     }
 
     // 初始化事件
@@ -78,48 +82,52 @@ public class IncomeFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.salary_btn:
 
-                type_pic.setImageResource(R.drawable.salary_png);
+                type_pic.setImageResource(typePic = R.drawable.salary_png);
+
                 type_word.setText("工资");
                 break;
             case R.id.red_btn:
-                type_pic.setImageResource(R.drawable.red_png);
+                type_pic.setImageResource(typePic = R.drawable.red_png);
                 type_word.setText("红包");
                 break;
             case R.id.bonus_btn:
-                type_pic.setImageResource(R.drawable.bonus_png);
+                type_pic.setImageResource(typePic = R.drawable.bonus_png);
                 type_word.setText("奖金");
                 break;
             case R.id.interest_btn:
-                type_pic.setImageResource(R.drawable.interest_png);
+                type_pic.setImageResource(typePic = R.drawable.interest_png);
                 type_word.setText("利息");
                 break;
             case R.id.pension_btn:
-                type_pic.setImageResource(R.drawable.pension_png);
+                type_pic.setImageResource(typePic = R.drawable.pension_png);
                 type_word.setText("养老金");
                 break;
             case R.id.life_btn:
-                type_pic.setImageResource(R.drawable.life_png);
+                type_pic.setImageResource(typePic = R.drawable.life_png);
                 type_word.setText("生活");
                 break;
             case R.id.extra_income_btn:
-                type_pic.setImageResource(R.drawable.extra_income_png);
+                type_pic.setImageResource(typePic = R.drawable.extra_income_png);
                 type_word.setText("外快");
                 break;
             case R.id.investment_btn:
-                type_pic.setImageResource(R.drawable.investment_png);
+                type_pic.setImageResource(typePic = R.drawable.investment_png);
                 type_word.setText("投资");
                 break;
             case R.id.income_other_btn:
-                type_pic.setImageResource(R.drawable.other_png);
+                type_pic.setImageResource(typePic = R.drawable.other_png);
                 type_word.setText("其他");
                 break;
-
 
             default:
                 break;
 
 
         }
+
+
+        mEditor.putInt("typePic", typePic);
+        mEditor.commit();
 
 
     }
