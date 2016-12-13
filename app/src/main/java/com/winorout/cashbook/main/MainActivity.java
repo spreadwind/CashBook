@@ -19,12 +19,16 @@ import android.widget.Toast;
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.accounting.AccountingActivity;
 import com.winorout.cashbook.qmyan.login.LoginActivity;
+import com.winorout.cashbook.qmyan.personcenter.PersonCenter;
+import com.winorout.cashbook.qmyan.setting.SettingActivity;
 import com.winorout.cashbook.widget.Draws;
 import com.winorout.cashbook.wxwan.Target;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
     private LinearLayout user;
+    private LinearLayout setting;
+    private LinearLayout synchronize;
     private Boolean isLogin;
     private TextView userNameText;
 
@@ -139,6 +143,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content.setOnTouchListener(this);
         title.setOnClickListener(this);
         user.setOnClickListener(this);
+        setting.setOnClickListener(this);
+        synchronize.setOnClickListener(this);
         settarget.setOnClickListener(this);
     }
 
@@ -166,6 +172,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         title = (TextView) findViewById(R.id.title);
 
         user = (LinearLayout) findViewById(R.id.user);
+        setting = (LinearLayout) findViewById(R.id.setting);
+        synchronize = (LinearLayout) findViewById(R.id.synchronize);
         userNameText = (TextView) findViewById(R.id.user_name);
 
         settarget = (Draws)findViewById(R.id.settarget);
@@ -202,15 +210,24 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 break;
             case R.id.user:
                 if (isLogin) {
-                    Toast.makeText(this, "打开个人中心，待完善。。。", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(MainActivity.this, PersonCenter.class);
+                    startActivity(intent1);
                 } else {
                     Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent1);
                 }
                 break;
             case R.id.settarget:
-                Intent intent1 = new Intent(MainActivity.this, Target.class);
-                startActivity(intent1);
+                Intent intent2 = new Intent(MainActivity.this, Target.class);
+                startActivity(intent2);
+                break;
+            case R.id.setting:
+                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.synchronize:
+                Toast.makeText(this, "同步中...", Toast.LENGTH_SHORT).show();
+                break;
             default:
                 break;
         }
