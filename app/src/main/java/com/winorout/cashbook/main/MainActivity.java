@@ -66,6 +66,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
      */
     public static final int SNAP_VELOCITY = 200;
 
+    private Draws draws;
+
     /**
      * 屏幕宽度值。
      */
@@ -197,6 +199,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         showinformation = (ListView) findViewById(R.id.showinformation);
         gross_income = (TextView)findViewById(R.id.gross_income);
         total_expenditure = (TextView)findViewById(R.id.total_expenditure);
+        draws = (Draws)findViewById(R.id.budget);
     }
 
     private void initEvent() {
@@ -211,6 +214,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         setting.setOnClickListener(this);
         synchronize.setOnClickListener(this);
         settarget.setOnClickListener(this);
+        draws.setProgress(80);
     }
 
     @Override
