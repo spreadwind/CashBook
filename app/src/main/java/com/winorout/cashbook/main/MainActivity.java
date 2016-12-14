@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -58,6 +59,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private SaveItem saveitem;  //临时存储一下用户信息
     private SQLiteDatabase db;   //打开数据库
     private ListView showinformation; //用户收支列表
+    private TextView gross_income; //总收入
+    private TextView total_expenditure; //总支出
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
      */
@@ -186,12 +189,14 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         synchronize = (LinearLayout) findViewById(R.id.synchronize);
         userNameText = (TextView) findViewById(R.id.user_name);
 
-        settarget = (Draws) findViewById(R.id.settarget);
+        settarget = (Draws) findViewById(R.id.budget);
         saveinformation = new ArrayList<SaveItem>();
         saveitem = new SaveItem();
         listadapter = new ListAdapters(MainActivity.this, saveinformation);
         db = dbHelper.getReadableDatabase();
         showinformation = (ListView) findViewById(R.id.showinformation);
+        gross_income = (TextView)findViewById(R.id.gross_income);
+        total_expenditure = (TextView)findViewById(R.id.total_expenditure);
     }
 
     private void initEvent() {
@@ -221,6 +226,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     }
 
     private void refreshlistview() {
+        double money = 0;
+        double money1 = 0;
         saveinformation.clear();
         db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("Finace", null, "userId = ?", new String[]{"123"}, null, null, null);
@@ -233,9 +240,23 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 saveinformation.add(saveitem);
                 listadapter = new ListAdapters(MainActivity.this, saveinformation);
                 showinformation.setAdapter(listadapter);
+                if (cursor.getString(cursor.getColumnIndex("categoryType")).equals("收入"))
+                {
+                    money += cursor.getDouble(cursor.getColumnIndex("amount"));
+                }
+                if (cursor.getString(cursor.getColumnIndex("categoryType")).equals("支出"))
+                {
+                    money1 += cursor.getDouble(cursor.getColumnIndex("amount"));
+                }
             } while (cursor.moveToNext());
         }
         cursor.close();
+        resetmoney(money , money1);
+    }
+
+    private void resetmoney(double money, double money1) {
+        gross_income.setText(money + "");
+        total_expenditure.setText(money1 + "");
     }
 
 
@@ -277,7 +298,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                     startActivity(intent1);
                 }
                 break;
-            case R.id.settarget:
+            case R.id.budget:
                 Intent intent2 = new Intent(MainActivity.this, Target.class);
                 startActivity(intent2);
                 break;

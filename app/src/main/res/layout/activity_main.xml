@@ -235,11 +235,73 @@
                 android:background="#ffffff"/>
 
             <com.winorout.cashbook.widget.Draws
-                android:id="@+id/settarget"
+                android:id="@+id/budget"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="-80dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="-80dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="center"
+                        android:textColor="#b18d40"
+                        android:text="当月收入"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center"
+                        android:textColor="#b18d40"
+                        android:text="当月支出"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/gross_income"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="center"
+                        android:textColor="#e2b95e"
+                        android:textSize="17dp"
+                        android:text="XXX"/>
+
+                    <TextView
+                        android:id="@+id/total_expenditure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="30dp"
+                        android:gravity="center"
+                        android:textColor="#e2b95e"
+                        android:textSize="17dp"
+                        android:text="XXX"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
 
 
             <ListView
@@ -248,7 +310,8 @@
                 android:id="@+id/showinformation"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:divider="@null"/>
+                android:divider="@null"
+                android:scrollbars="none"/>
 
             <ImageView
                 android:background="#e1e1e1"
@@ -256,8 +319,6 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="bottom|right"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
                 android:src="@drawable/add"/>
 
         </LinearLayout>
