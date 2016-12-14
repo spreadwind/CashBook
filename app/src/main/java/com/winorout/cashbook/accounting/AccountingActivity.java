@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
     private ExpenseFragment expenseFragment = new ExpenseFragment();
     private IncomeFragment incomeFragment = new IncomeFragment();
 
+    private EditText note_edit;
     private Button save_btn;
     private LinearLayout income_btn;
     private LinearLayout expense_btn;
@@ -80,6 +82,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
     }
 
     public void initView() {
+        note_edit = (EditText)findViewById(R.id.note_edit);
         type_pic = (ImageView)findViewById(R.id.type_pic);
         type_word = (TextView)findViewById(R.id.type_word);
         zero_btn = (Button) findViewById(R.id.zero_btn);
@@ -171,6 +174,8 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     transaction.hide(expenseFragment);
                     transaction.commit();
                     inorout = 2;
+                    type_pic.setImageResource(R.drawable.salary_png);
+                    type_word.setText("工资");
                     break;
 
                 case R.id.expense_layout:
@@ -180,6 +185,8 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     transaction1.hide(incomeFragment);
                     transaction1.commit();
                     inorout = 1;
+                    type_pic.setImageResource(R.drawable.cloth_png);
+                    type_word.setText("衣服");
                     break;
                 case R.id.back_btn:
                     finish();
@@ -451,6 +458,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     }else {
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues values = new ContentValues();
+                        values.put("note",note_edit.getText().toString());
                         values.put("amount",type_amount.getText().toString());
                         values.put("userId", userId);
                         values.put("categoryType", categoryType);
@@ -463,6 +471,8 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                         db.insert("Finace", null, values);
                         db.close();
                     }
+
+                    finish();
 
 
                     break;
