@@ -64,7 +64,7 @@ public class Draws extends View {
 
         mPaint.setStyle(Paint.Style.FILL);
 
-        mPaint.setColor(Color.GREEN);
+        mPaint.setColor(Color.argb(225, 206, 86, 35));
 
         canvas.drawCircle(0, 0, r + 4, mPaint);
 
@@ -153,7 +153,13 @@ public class Draws extends View {
     public void setProgress(float percent) {
         //percent是从0到1；
         if (percent != 0) {
-            this.percent = percent;
+            if (percent > 100)
+            {
+                this.percent = 1;
+            }
+            else {
+                this.percent = percent / 100;
+            }
         } else {
             this.percent = 0;
         }
