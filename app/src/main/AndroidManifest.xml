@@ -38,6 +38,9 @@
             android:name=".qmyan.personcenter.PersonCenter"
             android:label="@string/title_activity_person_center">
         </activity>
+        <activity android:name=".qmyan.setting.HelpActivity"></activity>
+        <activity android:name=".qmyan.setting.AboutActivity"></activity>
+
     </application>
 
 </manifest>
