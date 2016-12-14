@@ -64,7 +64,7 @@ public class Draws extends View {
 
         mPaint.setStyle(Paint.Style.FILL);
 
-        mPaint.setColor(Color.GREEN);
+        mPaint.setColor(Color.argb(225, 206, 86, 35));
 
         canvas.drawCircle(0, 0, r + 4, mPaint);
 
