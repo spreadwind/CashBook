@@ -32,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "categoryType text,"
             + "categoryName text,"
             + "typePic int,"
-            + "amount real,"
+            + "amount text,"
             + "date text,"
             + "note text)";
 

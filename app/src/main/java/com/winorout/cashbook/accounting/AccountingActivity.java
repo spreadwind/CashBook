@@ -443,13 +443,15 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     }
 
                     categoryName = type_word.getText().toString();
-                    int userId = sharedPreferences.getInt("userId", -1);
+                    String userId = String.valueOf(sharedPreferences.getInt("userId", -1));
+                    userId = "123";
                     // TODO: 2016/12/13 判断
-                    if(userId == -1){
+                    if(Integer.parseInt(userId) == -1){
                         Toast.makeText(getApplicationContext(),"错误",Toast.LENGTH_SHORT).show();
                     }else {
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues values = new ContentValues();
+                        values.put("amount",type_amount.getText().toString());
                         values.put("userId", userId);
                         values.put("categoryType", categoryType);
                         values.put("categoryName", categoryName);

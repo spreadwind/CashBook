@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -22,7 +24,16 @@ import com.winorout.cashbook.qmyan.login.LoginActivity;
 import com.winorout.cashbook.qmyan.personcenter.PersonCenter;
 import com.winorout.cashbook.qmyan.setting.SettingActivity;
 import com.winorout.cashbook.widget.Draws;
+import com.winorout.cashbook.wxwan.ListAdapters;
+import com.winorout.cashbook.wxwan.SaveItem;
 import com.winorout.cashbook.wxwan.Target;
+
+import java.util.ArrayList;
+
+import static com.winorout.cashbook.common.MyApplication.dbHelper;
+
+import android.widget.ListView;
+import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
@@ -41,6 +52,12 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private TextView title; //标题
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor editor;
+
+    private ListAdapters listadapter; //适配器
+    private ArrayList<SaveItem> saveinformation; //保存用户列表信息
+    private SaveItem saveitem;  //临时存储一下用户信息
+    private SQLiteDatabase db;   //打开数据库
+    private ListView showinformation; //用户收支列表
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
      */
@@ -119,33 +136,26 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         } else {
             title.setText("账户余额");
         }
+        initinformation();
         initEvent();
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        isLogin = mSharedPreferences.getBoolean("isLogin", false);
-        if (isLogin) {
-            userNameText.setText(mSharedPreferences.getString("userName", "用户名"));
-        } else {
-            userNameText.setText("点击登录");
+    private void initinformation() {
+        saveinformation.clear();
+        Cursor cursor = db.query("Finace", null, "userId = ?", new String[]{"123"}, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                saveitem = new SaveItem();
+                saveitem.setTextView(cursor.getString(cursor.getColumnIndex("categoryName")));
+                saveitem.setImageView(cursor.getInt(cursor.getColumnIndex("typePic")));
+                saveitem.setMoney(cursor.getDouble(cursor.getColumnIndex("amount")));
+                saveinformation.add(saveitem);
+                listadapter = new ListAdapters(MainActivity.this, saveinformation);
+                showinformation.setAdapter(listadapter);
+            } while (cursor.moveToNext());
         }
-    }
-
-    private void initEvent() {
-    /*
-    * 设置几个监听事件*/
-        imageView.setOnClickListener(this);
-        head.setOnClickListener(this);
-        more.setOnClickListener(this);
-        content.setOnTouchListener(this);
-        title.setOnClickListener(this);
-        user.setOnClickListener(this);
-        setting.setOnClickListener(this);
-        synchronize.setOnClickListener(this);
-        settarget.setOnClickListener(this);
+        cursor.close();
     }
 
     /**
@@ -158,7 +168,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         menu = findViewById(R.id.menu);
         menuParams = (LinearLayout.LayoutParams) menu.getLayoutParams();
         // 将menu的宽度设置为屏幕宽度减去menuPadding并减去8分之一界面宽度
-        menuParams.width = screenWidth - menuPadding - screenWidth/8;
+        menuParams.width = screenWidth - menuPadding - screenWidth / 8;
         // 左边缘的值赋值为menu宽度的负数
         leftEdge = -menuParams.width;
         // menu的leftMargin设置为左边缘的值，这样初始化时menu就变为不可见
@@ -176,8 +186,58 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         synchronize = (LinearLayout) findViewById(R.id.synchronize);
         userNameText = (TextView) findViewById(R.id.user_name);
 
-        settarget = (Draws)findViewById(R.id.settarget);
+        settarget = (Draws) findViewById(R.id.settarget);
+        saveinformation = new ArrayList<SaveItem>();
+        saveitem = new SaveItem();
+        listadapter = new ListAdapters(MainActivity.this, saveinformation);
+        db = dbHelper.getReadableDatabase();
+        showinformation = (ListView) findViewById(R.id.showinformation);
     }
+
+    private void initEvent() {
+    /*
+    * 设置几个监听事件*/
+        imageView.setOnClickListener(this);
+        head.setOnClickListener(this);
+        more.setOnClickListener(this);
+        content.setOnTouchListener(this);
+        title.setOnClickListener(this);
+        user.setOnClickListener(this);
+        setting.setOnClickListener(this);
+        synchronize.setOnClickListener(this);
+        settarget.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshlistview();
+        isLogin = mSharedPreferences.getBoolean("isLogin", false);
+        if (isLogin) {
+            userNameText.setText(mSharedPreferences.getString("userName", "用户名"));
+        } else {
+            userNameText.setText("点击登录");
+        }
+    }
+
+    private void refreshlistview() {
+        saveinformation.clear();
+        db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("Finace", null, "userId = ?", new String[]{"123"}, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                saveitem = new SaveItem();
+                saveitem.setTextView(cursor.getString(cursor.getColumnIndex("categoryName")));
+                saveitem.setImageView(cursor.getInt(cursor.getColumnIndex("typePic")));
+                saveitem.setMoney(cursor.getDouble(cursor.getColumnIndex("amount")));
+                saveinformation.add(saveitem);
+                listadapter = new ListAdapters(MainActivity.this, saveinformation);
+                showinformation.setAdapter(listadapter);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+    }
+
 
     public void onClick(View v) {
         switch (v.getId()) {

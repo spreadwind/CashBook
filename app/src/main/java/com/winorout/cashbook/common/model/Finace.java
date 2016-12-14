@@ -12,7 +12,7 @@ public class Finace {
     private int userId;			//用户Id
     private String categoryType;//收支类型
     private String categoryName;//类型名称
-    private double amount;		//金额
+    private String amount;		//金额
     private Date date;			//日期
     private String note;		//备注
 
@@ -32,11 +32,11 @@ public class Finace {
         this.userId = userId;
     }
 
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
