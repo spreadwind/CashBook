@@ -43,6 +43,9 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private LinearLayout synchronize;
     private Boolean isLogin;
     private TextView userNameText;
+    private TextView generalIncome;
+    private TextView overallCost;
+    private TextView overallRest;
 
     private Draws settarget; //月预算设置
     private ImageView imageView; //记账图标
@@ -190,6 +193,9 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         setting = (LinearLayout) findViewById(R.id.setting);
         synchronize = (LinearLayout) findViewById(R.id.synchronize);
         userNameText = (TextView) findViewById(R.id.user_name);
+        overallCost = (TextView) findViewById(R.id.overall_cost);
+        overallRest = (TextView) findViewById(R.id.overall_rest);
+        generalIncome = (TextView) findViewById(R.id.general_income);
 
         settarget = (Draws) findViewById(R.id.budget);
         saveinformation = new ArrayList<SaveItem>();
@@ -266,7 +272,10 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     private void resetmoney(double money, double money1) {
         gross_income.setText(money + "");
+        generalIncome.setText(money + "");
         total_expenditure.setText(money1 + "");
+        overallCost.setText(money1 + "");
+        overallRest.setText("");
     }
 
 

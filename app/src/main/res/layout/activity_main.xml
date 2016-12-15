@@ -139,6 +139,7 @@
                 android:paddingTop="3dp">
 
                 <TextView
+                    android:id="@+id/general_income"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -148,6 +149,7 @@
                     android:textSize="14dp"/>
 
                 <TextView
+                    android:id="@+id/overall_cost"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -157,6 +159,7 @@
                     android:textSize="14dp"/>
 
                 <TextView
+                    android:id="@+id/overall_rest"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
