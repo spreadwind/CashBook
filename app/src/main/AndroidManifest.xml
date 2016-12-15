@@ -29,7 +29,7 @@
             android:name=".qmyan.changepwd.ChangePwdActivity"
             android:label="@string/title_activity_change_password">
         </activity>
-        <activity android:name=".wxwan.Target"/>
+        <activity android:name=".xdwan.Target"/>
         <activity
             android:name=".qmyan.setting.SettingActivity"
             android:label="@string/title_activity_setting">

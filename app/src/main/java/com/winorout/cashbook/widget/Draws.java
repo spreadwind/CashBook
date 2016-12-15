@@ -101,16 +101,11 @@ public class Draws extends View {
 
         /*
         * 为了给不同的进度时显示不同的圆环背景颜色*/
-        if (percent < 0.6)
-        {
+        if (percent < 0.6) {
             mPaint2.setColor(Color.CYAN);
-        }
-        else if (percent < 0.8)
-        {
-            mPaint2.setColor(Color.BLUE);
-        }
-        else
-        {
+        } else if (percent < 0.8) {
+            mPaint2.setColor(Color.argb(225, 186, 76, 25));
+        } else {
             mPaint2.setColor(Color.RED);
         }
         canvas.drawPath(mPath, mPaint2); //开始绘制波形进度
@@ -122,14 +117,13 @@ public class Draws extends View {
          */
         NumberFormat numberFormat = NumberFormat.getPercentInstance();
         numberFormat.setMinimumFractionDigits(1);
-        textCenter(new String[] { numberFormat.format(percent) }, mPaint,
+        textCenter(new String[]{numberFormat.format(percent)}, mPaint,
                 canvas, mPointF, Paint.Align.CENTER);
     }
 
 
-
-            protected void textCenter(String[] strings, Paint paint, Canvas canvas,
-                 PointF point, Paint.Align align) {
+    protected void textCenter(String[] strings, Paint paint, Canvas canvas,
+                              PointF point, Paint.Align align) {
         paint.setTextAlign(align);
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         float top = fontMetrics.top;
@@ -153,11 +147,9 @@ public class Draws extends View {
     public void setProgress(float percent) {
         //percent是从0到1；
         if (percent != 0) {
-            if (percent > 100)
-            {
+            if (percent > 100) {
                 this.percent = 1;
-            }
-            else {
+            } else {
                 this.percent = percent / 100;
             }
         } else {

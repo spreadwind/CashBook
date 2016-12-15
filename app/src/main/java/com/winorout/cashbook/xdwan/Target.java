@@ -1,4 +1,4 @@
-package com.winorout.cashbook.wxwan;
+package com.winorout.cashbook.xdwan;
 
 import android.app.Activity;
 import android.content.Context;
@@ -154,10 +154,30 @@ public class Target extends Activity implements View.OnClickListener{
 
     private void setmoney(String number)
     {
+//        LayoutInflater layoutInflater = LayoutInflater.from(Target.this);
+//        View view = layoutInflater.inflate(R.layout.activity_main, null);
+//        TextView gross_income = (TextView)view.findViewById(R.id.gross_income);
+//        TextView total_expenditure = (TextView)view.findViewById(R.id.total_expenditure);
+//        int money = Integer.parseInt(gross_income.getText().toString());
+//        int money1 = Integer.parseInt(total_expenditure.toString().toString());
+//        Toast.makeText(this, "" + money, Toast.LENGTH_SHORT).show();
         int many = Integer.parseInt(number);
         day.setText(many / 30 + "");
         week.setText(many / 7 + "");
-        month.setText(number);
+//        if (money <= money1) {
+//            if ((money1 - money) <= Integer.parseInt(number)) {
+//                int x = Integer.parseInt(number) - money1 + money;
+//                month.setText(" " + x);
+//            }
+//            else
+//            {
+//                month.setText("已超额");
+//            }
+//        }
+//        else
+//        {
+//            month.setText(number);
+//        }
         targets.setText(number);
     }
 

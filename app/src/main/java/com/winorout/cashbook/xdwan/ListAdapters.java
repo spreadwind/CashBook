@@ -1,4 +1,4 @@
-package com.winorout.cashbook.wxwan;
+package com.winorout.cashbook.xdwan;
 
 /**
  * Created by Mr-x on 2016/12/09.
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.winorout.cashbook.R;
 
