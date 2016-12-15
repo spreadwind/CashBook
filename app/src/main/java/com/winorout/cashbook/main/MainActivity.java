@@ -36,6 +36,8 @@ import android.widget.ListView;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
+    public static final int FLAG_FROM_MAINACTIVITY = 0;
+
     private LinearLayout user;
     private LinearLayout setting;
     private LinearLayout synchronize;
@@ -300,6 +302,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
             case R.id.user:
                 if (isLogin) {
                     Intent intent1 = new Intent(MainActivity.this, PersonCenter.class);
+                    intent1.setFlags(FLAG_FROM_MAINACTIVITY);
                     startActivity(intent1);
                 } else {
                     Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
