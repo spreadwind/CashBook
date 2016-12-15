@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6ad19d"
+    android:background="@drawable/personcenter_bg"
     android:orientation="vertical">
 
     <include layout="@layout/top_bar"/>
@@ -34,8 +34,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
         android:background="#fff"/>
 
     <LinearLayout
@@ -46,24 +44,21 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/ic_launcher"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
+            android:textColor="#c28c3f"
+            android:layout_marginLeft="100dp"
             android:text="用户名"/>
 
         <TextView
             android:id="@+id/user_name"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
+            android:textColor="#c28c3f"
             android:padding="5dp"
             android:text="123456"/>
 
@@ -74,7 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
         android:background="#fff"/>
 
     <LinearLayout
@@ -85,25 +79,22 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/ic_launcher"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="100dp"
             android:padding="5dp"
+            android:textColor="#c28c3f"
             android:text="性别"/>
 
         <TextView
             android:id="@+id/sex"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
             android:padding="5dp"
+            android:textColor="#c28c3f"
             android:text="男"/>
 
     </LinearLayout>
@@ -113,7 +104,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
         android:background="#fff"/>
 
     <LinearLayout
@@ -124,20 +114,32 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/ic_launcher"/>
-
         <TextView
             android:id="@+id/change_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="100dp"
             android:padding="5dp"
+            android:layout_weight="1"
+            android:textColor="#c28c3f"
             android:text="修改密码"/>
 
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:padding="5dp"
+            android:textColor="#c28c3f"
+            android:text=">>>"/>
+
     </LinearLayout>
+
+    <!--分割条-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="25dp"
+        android:background="#fff"/>
 
 </LinearLayout>

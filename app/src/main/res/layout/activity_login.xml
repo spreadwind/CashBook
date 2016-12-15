@@ -8,39 +8,58 @@
 
     <include layout="@layout/top_bar"/>
 
-    <EditText
-        android:id="@+id/user_name"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="60dp"
-        android:drawableLeft="@drawable/user"
-        android:hint="请输入手机号"
-        android:inputType="number"
-        android:maxLength="11"
-        android:padding="1dp"
-        android:paddingLeft="0dp"/>
-
-    <EditText
-        android:id="@+id/user_password"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/password"
-        android:hint="请输入密码"
-        android:inputType="textPassword"
-        android:maxLength="20"
-        android:padding="1dp"
-        android:paddingLeft="0dp"/>
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/user"/>
+
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="请输入手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:padding="7dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/password"/>
+
+        <EditText
+            android:id="@+id/user_password"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:padding="7dp"
+            android:paddingLeft="0dp"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="300dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
@@ -48,7 +67,7 @@
 
     <Button
         android:id="@+id/register_btn"
-        android:layout_width="300dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
