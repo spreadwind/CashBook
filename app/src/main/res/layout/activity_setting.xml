@@ -36,7 +36,6 @@
         <com.winorout.cashbook.widget.CircleImageView
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:layout_margin="5dp"
             android:src="@drawable/user_photo"/>
 
         <ImageView
@@ -86,6 +85,7 @@
         android:layout_marginLeft="25dp"/>
 
     <LinearLayout
+        android:id="@+id/synchronize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
