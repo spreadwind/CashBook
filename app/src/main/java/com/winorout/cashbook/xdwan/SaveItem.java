@@ -1,4 +1,4 @@
-package com.winorout.cashbook.wxwan;
+package com.winorout.cashbook.xdwan;
 
 /**
  * Created by Mr-x on 2016/12/09.

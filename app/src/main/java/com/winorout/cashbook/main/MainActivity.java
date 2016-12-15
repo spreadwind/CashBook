@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -25,16 +24,15 @@ import com.winorout.cashbook.qmyan.login.LoginActivity;
 import com.winorout.cashbook.qmyan.personcenter.PersonCenter;
 import com.winorout.cashbook.qmyan.setting.SettingActivity;
 import com.winorout.cashbook.widget.Draws;
-import com.winorout.cashbook.wxwan.ListAdapters;
-import com.winorout.cashbook.wxwan.SaveItem;
-import com.winorout.cashbook.wxwan.Target;
+import com.winorout.cashbook.xdwan.ListAdapters;
+import com.winorout.cashbook.xdwan.SaveItem;
+import com.winorout.cashbook.xdwan.Target;
 
 import java.util.ArrayList;
 
 import static com.winorout.cashbook.common.MyApplication.dbHelper;
 
 import android.widget.ListView;
-import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
 
@@ -214,7 +212,6 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         setting.setOnClickListener(this);
         synchronize.setOnClickListener(this);
         settarget.setOnClickListener(this);
-        draws.setProgress(80);
     }
 
     @Override
@@ -256,6 +253,13 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         }
         cursor.close();
         resetmoney(money , money1);
+        if (money1 >= money) {
+            draws.setProgress((float) (money1 - money) / Integer.parseInt(mSharedPreferences.getString("money", "1000")) * 100);
+        }
+        else
+        {
+            draws.setProgress(0);
+        }
     }
 
     private void resetmoney(double money, double money1) {
