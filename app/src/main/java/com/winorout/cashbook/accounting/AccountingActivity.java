@@ -443,24 +443,27 @@ public class AccountingActivity extends Activity implements View.OnClickListener
                     break;
 
                 case R.id.save_btn:
+
+
                     if(inorout == 1){
                         categoryType = "支出";
                     }else{
                         categoryType = "收入";
                     }
 
-                    categoryName = type_word.getText().toString();
-                    String userId = String.valueOf(sharedPreferences.getInt("userId", -1));
-                    userId = "123";
+
+                    String userName = sharedPreferences.getString("userName", "default");
+
                     // TODO: 2016/12/13 判断
-                    if(Integer.parseInt(userId) == -1){
-                        Toast.makeText(getApplicationContext(),"错误",Toast.LENGTH_SHORT).show();
+                    if(userName == "default"){
+                        Toast.makeText(getApplicationContext(),"请登录",Toast.LENGTH_SHORT).show();
                     }else {
+
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues values = new ContentValues();
                         values.put("note",note_edit.getText().toString());
                         values.put("amount",type_amount.getText().toString());
-                        values.put("userId", userId);
+                        values.put("userId", userName);
                         values.put("categoryType", categoryType);
                         values.put("categoryName", categoryName);
                         values.put("typePic",sharedPreferences.getInt("typePic", R.drawable.bonus_png));
@@ -479,20 +482,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
 
                 default:
                     break;
-//            case R.id.cloth_btn:
-//                new Thread()
-//                {
-//                    @Override
-//                    public void run() {
-//                        Message message =new Message();
-//                        message.what = 1;
-//                        mHandler.sendMessage(message);
-//                    }
-//                }.start();
-//                ImageView type_pic = (ImageView) findViewById(R.id.type_pic);
-//                type_pic.setImageResource(R.drawable.cloth_png);
 //
-//                break;
 
 
             }
@@ -502,17 +492,7 @@ public class AccountingActivity extends Activity implements View.OnClickListener
             clear();
         }
 
-//        mHandler = new Handler()
-//        {
-//            @Override
-//            public void handleMessage(Message msg) {
-//                super.handleMessage(msg);
-//                if (msg.what == 1) {
-//                    ImageView type_pic = (ImageView) findViewById(R.id.type_pic);
-//                    type_pic.setImageResource(R.drawable.cloth_png);
-//                }
-//            }
-//        };
+
 
 
     }

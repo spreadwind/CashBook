@@ -239,7 +239,9 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         double money1 = 0;
         saveinformation.clear();
         db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query("Finace", null, "userId = ?", new String[]{"123"}, null, null, null);
+        SharedPreferences sharedPreferences = getSharedPreferences("loginUser", 123);
+        String userName = sharedPreferences.getString("userName", "default");
+        Cursor cursor = db.query("Finace", null, "userId = ?", new String[]{userName}, null, null, null);
         if (cursor.moveToFirst()) {
             do {
                 saveitem = new SaveItem();
