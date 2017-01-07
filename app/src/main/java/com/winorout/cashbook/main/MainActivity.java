@@ -137,7 +137,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);E
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);//临时存储一些数据
         editor = mSharedPreferences.edit();
