@@ -138,14 +138,15 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         mSharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);//临时存储一些数据
         editor = mSharedPreferences.edit();
         initValues();
         if (mSharedPreferences.getInt("key", titlekey) == 0) {
-            title.setText("天天记账");
+            title.setText("智能冰箱");
         } else {
-            title.setText("账户余额");
+            title.setText("我的冰箱");
         }
         initinformation();
         initEvent();
@@ -187,7 +188,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         // 将content的宽度设置为屏幕宽度
         content.getLayoutParams().width = screenWidth;
 
-        imageView = (ImageView) findViewById(R.id.pic);
+//        imageView = (ImageView) findViewById(R.id.pic);
         head = (ImageView) findViewById(R.id.head);
         more = (ImageView) findViewById(R.id.more);
         title = (TextView) findViewById(R.id.title);
@@ -214,7 +215,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private void initEvent() {
     /*
     * 设置几个监听事件*/
-        imageView.setOnClickListener(this);
+//        imageView.setOnClickListener(this);
         head.setOnClickListener(this);
         more.setOnClickListener(this);
         content.setOnTouchListener(this);
@@ -299,10 +300,6 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.pic:
-                Intent intent = new Intent(MainActivity.this, AccountingActivity.class);
-                startActivity(intent);
-                break;
             case R.id.more:
                 Intent intent1 = new Intent(MainActivity.this, Extendedfunction.class);
                 startActivity(intent1);
@@ -360,8 +357,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 break;
 
             case R.id.budget:
-                Intent intent2 = new Intent(MainActivity.this, Target.class);
-                startActivity(intent2);
+//                Intent intent2 = new Intent(MainActivity.this, Target.class);
+//                startActivity(intent2);
                 break;
 //            case R.id.setting:
 //                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);

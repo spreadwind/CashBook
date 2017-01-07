@@ -286,7 +286,7 @@
                         android:layout_marginTop="20dp"
                         android:background="@drawable/rect"
                         android:gravity="center"
-                        android:text="天天记账"
+                        android:text="智能冰箱"
                         android:textColor="#ffffff"
                         android:textSize="14dp"/>
                 </LinearLayout>
@@ -386,13 +386,13 @@
                 android:divider="@null"
                 android:scrollbars="none"/>
 
-            <ImageView
-                android:id="@+id/pic"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="bottom|right"
-                android:background="#e1e1e1"
-                android:src="@drawable/add"/>
+            <!--<ImageView-->
+                <!--android:id="@+id/pic"-->
+                <!--android:layout_width="60dp"-->
+                <!--android:layout_height="60dp"-->
+                <!--android:layout_gravity="bottom|right"-->
+                <!--android:background="#e1e1e1"-->
+                <!--android:src="@drawable/add"/>-->
 
         </LinearLayout>
     </LinearLayout>

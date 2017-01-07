@@ -34,7 +34,7 @@ public class Draws extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(1);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setTextSize(40);
+        mPaint.setTextSize(30);
 
         mPaint2 = new Paint();
         mPaint2.setColor(Color.CYAN);
@@ -64,7 +64,7 @@ public class Draws extends View {
 
         mPaint.setStyle(Paint.Style.FILL);
 
-        mPaint.setColor(Color.argb(225, 206, 86, 35));
+        mPaint.setColor(Color.argb(225, 137, 97, 28));
 
         canvas.drawCircle(0, 0, r + 4, mPaint);
 
@@ -106,7 +106,7 @@ public class Draws extends View {
         } else if (percent < 0.8) {
             mPaint2.setColor(Color.argb(225, 186, 76, 25));
         } else {
-            mPaint2.setColor(Color.RED);
+            mPaint2.setColor(Color.GRAY);
         }
         canvas.drawPath(mPath, mPaint2); //开始绘制波形进度
         mPath.rewind(); //回收路径设置
@@ -117,7 +117,7 @@ public class Draws extends View {
          */
         NumberFormat numberFormat = NumberFormat.getPercentInstance();
         numberFormat.setMinimumFractionDigits(1);
-        textCenter(new String[]{numberFormat.format(percent)}, mPaint,
+        textCenter(new String[]{"当前温度"}, mPaint,
                 canvas, mPointF, Paint.Align.CENTER);
     }
 
