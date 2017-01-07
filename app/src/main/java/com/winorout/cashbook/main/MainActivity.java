@@ -8,6 +8,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -64,6 +66,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private ListView showinformation; //用户收支列表
     private TextView gross_income; //总收入
     private TextView total_expenditure; //总支出
+    private Handler meHandler;
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
      */
@@ -190,12 +193,12 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         title = (TextView) findViewById(R.id.title);
 
         user = (LinearLayout) findViewById(R.id.user);
-        setting = (LinearLayout) findViewById(R.id.setting);
-        synchronize = (LinearLayout) findViewById(R.id.synchronize);
+//        setting = (LinearLayout) findViewById(R.id.setting);
+//        synchronize = (LinearLayout) findViewById(R.id.synchronize);
         userNameText = (TextView) findViewById(R.id.user_name);
-        overallCost = (TextView) findViewById(R.id.overall_cost);
-        overallRest = (TextView) findViewById(R.id.overall_rest);
-        generalIncome = (TextView) findViewById(R.id.general_income);
+//        overallCost = (TextView) findViewById(R.id.overall_cost);
+//        overallRest = (TextView) findViewById(R.id.overall_rest);
+//        generalIncome = (TextView) findViewById(R.id.general_income);
 
         settarget = (Draws) findViewById(R.id.budget);
         saveinformation = new ArrayList<SaveItem>();
@@ -217,15 +220,15 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content.setOnTouchListener(this);
         title.setOnClickListener(this);
         user.setOnClickListener(this);
-        setting.setOnClickListener(this);
-        synchronize.setOnClickListener(this);
+//        setting.setOnClickListener(this);
+//        synchronize.setOnClickListener(this);
         settarget.setOnClickListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        refreshlistview();
+//        refreshlistview();
         isLogin = mSharedPreferences.getBoolean("isLogin", false);
         if (isLogin) {
             userNameText.setText(mSharedPreferences.getString("userName", "用户名"));
@@ -280,6 +283,19 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         overallRest.setText("");
     }
 
+    Handler handler=new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg) {
+
+            switch (msg.what)
+            {
+                case 123:
+                    Toast.makeText(getApplicationContext(), "无可用设备", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -311,26 +327,48 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 editor.commit();
                 break;
             case R.id.user:
-                if (isLogin) {
-                    Intent intent1 = new Intent(MainActivity.this, PersonCenter.class);
-                    intent1.setFlags(FLAG_FROM_MAINACTIVITY);
-                    startActivity(intent1);
-                } else {
-                    Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent1);
-                }
+//                if (isLogin) {
+//                    Intent intent1 = new Intent(MainActivity.this, PersonCenter.class);
+//                    intent1.setFlags(FLAG_FROM_MAINACTIVITY);
+//                    startActivity(intent1);
+//                } else {
+//                    Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+//                    startActivity(intent1);
+//                }
+
+
+                Toast.makeText(getApplicationContext(),"正在搜索设备....",Toast.LENGTH_SHORT).show();
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                    }
+//                }).start();
+
+
+                new Thread()
+                {
+                    @Override
+                    public void run() {
+                        super.run();
+                        Message message = new Message();
+                        message.what = 123;
+                        handler.sendMessageAtTime(message, 4000);
+                    }
+                }.start();
                 break;
+
             case R.id.budget:
                 Intent intent2 = new Intent(MainActivity.this, Target.class);
                 startActivity(intent2);
                 break;
-            case R.id.setting:
-                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.synchronize:
-                Toast.makeText(this, "同步中...", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.setting:
+//                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
+//                startActivity(intent3);
+//                break;
+//            case R.id.synchronize:
+//                Toast.makeText(this, "同步中...", Toast.LENGTH_SHORT).show();
+//                break;
             default:
                 break;
         }

@@ -48,49 +48,49 @@
                     android:textColor="#e6e6e6"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/synchronize"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+            <!--android:id="@+id/synchronize"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginTop="17dp"
-                    android:src="@drawable/synchronize"/>
+            <!--<ImageView-->
+            <!--android:layout_width="32dp"-->
+            <!--android:layout_height="32dp"-->
+            <!--android:layout_marginTop="17dp"-->
+            <!--android:src="@drawable/synchronize"/>-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="1dp"
-                    android:text="同步"
-                    android:textColor="#e6e6e6"/>
-            </LinearLayout>
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="1dp"-->
+            <!--android:text="同步"-->
+            <!--android:textColor="#e6e6e6"/>-->
+            <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/setting"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+            <!--android:id="@+id/setting"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginTop="17dp"
-                    android:src="@drawable/setting"/>
+            <!--<ImageView-->
+            <!--android:layout_width="32dp"-->
+            <!--android:layout_height="32dp"-->
+            <!--android:layout_marginTop="17dp"-->
+            <!--android:src="@drawable/setting"/>-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="1dp"
-                    android:text="设置"
-                    android:textColor="#e6e6e6"/>
-            </LinearLayout>
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="1dp"-->
+            <!--android:text="设置"-->
+            <!--android:textColor="#e6e6e6"/>-->
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
@@ -100,76 +100,146 @@
             android:layout_height="0.1dp"
             android:background="#fff"/>
 
-        <TableLayout
+        <!--<TableLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="15dp">-->
+
+        <!--<TableRow>-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="总收入"-->
+        <!--android:textColor="#e6e6e6"-->
+        <!--android:textSize="14dp"/>-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="总支出"-->
+        <!--android:textColor="#e6e6e6"-->
+        <!--android:textSize="14dp"/>-->
+
+        <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="总结余"-->
+        <!--android:textColor="#e6e6e6"-->
+        <!--android:textSize="14dp"/>-->
+        <!--</TableRow>-->
+
+        <!--<TableRow-->
+        <!--android:paddingTop="3dp">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/general_income"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="0.00"-->
+        <!--android:textColor="#e6e6e6"-->
+        <!--android:textSize="14dp"/>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/overall_cost"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="0.00"-->
+        <!--android:textColor="#e6e6e6"-->
+        <!--android:textSize="14dp"/>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/overall_rest"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="0.00"-->
+        <!--android:textColor="#e6e6e6"-->
+        <!--android:textSize="14dp"/>-->
+        <!--</TableRow>-->
+
+        <!--</TableLayout>-->
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-            <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="已连接设备"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="总收入"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="总支出"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="总结余"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
-            </TableRow>
+                android:layout_marginTop="5dp"
+                android:text="运行华为liteos冰箱"
+                android:textColor="#fff"
+                android:textSize="14dp"/>
 
-            <TableRow
-                android:paddingTop="3dp">
+            <!--分割条-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#fff"/>
 
-                <TextView
-                    android:id="@+id/general_income"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="0.00"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
+            <TextView
 
-                <TextView
-                    android:id="@+id/overall_cost"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="0.00"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="离线设备"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                />
 
-                <TextView
-                    android:id="@+id/overall_rest"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="0.00"
-                    android:textColor="#e6e6e6"
-                    android:textSize="14dp"/>
-            </TableRow>
 
-        </TableLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+
+                android:layout_marginTop="5dp"
+                android:text="海尔智能冰箱"
+                android:textColor="#808080"
+                android:textSize="14dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+
+                android:layout_marginTop="5dp"
+                android:text="美的智能冰箱"
+                android:textColor="#808080"
+                android:textSize="14dp"/>
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -260,8 +330,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="30dp"
                         android:gravity="center"
-                        android:textColor="#b18d40"
-                        android:text="当月收入"/>
+                        android:text="当月收入"
+                        android:textColor="#b18d40"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -269,8 +339,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="30dp"
                         android:gravity="center"
-                        android:textColor="#b18d40"
-                        android:text="当月支出"/>
+                        android:text="当月支出"
+                        android:textColor="#b18d40"/>
 
                 </RelativeLayout>
 
@@ -288,9 +358,9 @@
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="30dp"
                         android:gravity="center"
+                        android:text="XXX"
                         android:textColor="#e2b95e"
-                        android:textSize="17dp"
-                        android:text="XXX"/>
+                        android:textSize="17dp"/>
 
                     <TextView
                         android:id="@+id/total_expenditure"
@@ -299,29 +369,29 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="30dp"
                         android:gravity="center"
+                        android:text="XXX"
                         android:textColor="#e2b95e"
-                        android:textSize="17dp"
-                        android:text="XXX"/>
+                        android:textSize="17dp"/>
 
                 </RelativeLayout>
             </RelativeLayout>
 
 
             <ListView
-                android:background="#e1e1e1"
-                android:layout_weight="1"
                 android:id="@+id/showinformation"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#e1e1e1"
                 android:divider="@null"
                 android:scrollbars="none"/>
 
             <ImageView
-                android:background="#e1e1e1"
                 android:id="@+id/pic"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="bottom|right"
+                android:background="#e1e1e1"
                 android:src="@drawable/add"/>
 
         </LinearLayout>
