@@ -230,7 +230,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         if (isLogin) {
             userNameText.setText(mSharedPreferences.getString("userName", "用户名"));
         } else {
-            userNameText.setText("点击登录");
+            userNameText.setText("连接设备");
         }
     }
 

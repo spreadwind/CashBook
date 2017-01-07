@@ -44,7 +44,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="7dp"
                     android:layout_marginTop="7dp"
-                    android:text="点击登录"
+                    android:text="连接设备"
                     android:textColor="#e6e6e6"/>
             </LinearLayout>
 
