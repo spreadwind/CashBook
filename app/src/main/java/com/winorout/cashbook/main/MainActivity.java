@@ -26,6 +26,7 @@ import com.winorout.cashbook.qmyan.login.LoginActivity;
 import com.winorout.cashbook.qmyan.personcenter.PersonCenter;
 import com.winorout.cashbook.qmyan.setting.SettingActivity;
 import com.winorout.cashbook.widget.Draws;
+import com.winorout.cashbook.xdwan.Extendedfunction;
 import com.winorout.cashbook.xdwan.ListAdapters;
 import com.winorout.cashbook.xdwan.SaveItem;
 import com.winorout.cashbook.xdwan.Target;
@@ -136,8 +137,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);E
         setContentView(R.layout.activity_main);
         mSharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);//临时存储一些数据
         editor = mSharedPreferences.edit();
@@ -206,9 +206,9 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         listadapter = new ListAdapters(MainActivity.this, saveinformation);
         db = dbHelper.getReadableDatabase();
         showinformation = (ListView) findViewById(R.id.showinformation);
-        gross_income = (TextView)findViewById(R.id.gross_income);
-        total_expenditure = (TextView)findViewById(R.id.total_expenditure);
-        draws = (Draws)findViewById(R.id.budget);
+//        gross_income = (TextView)findViewById(R.id.gross_income);
+//        total_expenditure = (TextView)findViewById(R.id.total_expenditure);
+//        draws = (Draws)findViewById(R.id.budget);
     }
 
     private void initEvent() {
@@ -267,7 +267,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         cursor.close();
         resetmoney(money , money1);
         if (money1 >= money) {
-            draws.setProgress((float) (money1 - money) / Integer.parseInt(mSharedPreferences.getString("money", "1000")) * 100);
+//            draws.setProgress((float) (money1 - money) / Integer.parseInt(mSharedPreferences.getString("money", "1000")) * 100);
         }
         else
         {
@@ -278,7 +278,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private void resetmoney(double money, double money1) {
         gross_income.setText(money + "");
         generalIncome.setText(money + "");
-        total_expenditure.setText(money1 + "");
+//        total_expenditure.setText(money1 + "");
         overallCost.setText(money1 + "");
         overallRest.setText("");
     }
@@ -304,7 +304,8 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 startActivity(intent);
                 break;
             case R.id.more:
-                Toast.makeText(this, "功能正在完善中...", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(MainActivity.this, Extendedfunction.class);
+                startActivity(intent1);
                 break;
             case R.id.head:
                 if (i == 0) {

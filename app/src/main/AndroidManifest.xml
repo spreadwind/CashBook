@@ -40,6 +40,8 @@
         </activity>
         <activity android:name=".qmyan.setting.HelpActivity"></activity>
         <activity android:name=".qmyan.setting.AboutActivity"></activity>
+        <activity android:name=".xdwan.Extendedfunction"></activity>
+        <activity android:name=".xdwan.MoreinFormationKnows"></activity>
 
     </application>
 
