@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.winorout.cashbook.Introduce;
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.accounting.AccountingActivity;
 import com.winorout.cashbook.qmyan.login.LoginActivity;
@@ -68,6 +69,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private TextView gross_income; //总收入
     private TextView total_expenditure; //总支出
     private Handler meHandler;
+    private TextView mwebpage;
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
      */
@@ -192,6 +194,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         head = (ImageView) findViewById(R.id.head);
         more = (ImageView) findViewById(R.id.more);
         title = (TextView) findViewById(R.id.title);
+        mwebpage = (TextView) findViewById(R.id.webpage);
 
         user = (LinearLayout) findViewById(R.id.user);
 //        setting = (LinearLayout) findViewById(R.id.setting);
@@ -221,6 +224,7 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         content.setOnTouchListener(this);
         title.setOnClickListener(this);
         user.setOnClickListener(this);
+        mwebpage.setOnClickListener(this);
 //        setting.setOnClickListener(this);
 //        synchronize.setOnClickListener(this);
         settarget.setOnClickListener(this);
@@ -303,6 +307,10 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
             case R.id.more:
                 Intent intent1 = new Intent(MainActivity.this, Extendedfunction.class);
                 startActivity(intent1);
+                break;
+            case R.id.webpage:
+                Intent intent11 = new Intent(MainActivity.this, Introduce.class);
+                startActivity(intent11);
                 break;
             case R.id.head:
                 if (i == 0) {

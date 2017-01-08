@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.winorout.cashbook">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".common.MyApplication"
         android:allowBackup="true"
@@ -42,6 +44,7 @@
         <activity android:name=".qmyan.setting.AboutActivity"></activity>
         <activity android:name=".xdwan.Extendedfunction"></activity>
         <activity android:name=".xdwan.MoreinFormationKnows"></activity>
+        <activity android:name=".Introduce"></activity>
 
     </application>
 
