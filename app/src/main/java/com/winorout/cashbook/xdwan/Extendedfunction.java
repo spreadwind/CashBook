@@ -65,13 +65,13 @@ public class Extendedfunction extends Activity implements View.OnClickListener {
                 Toast.makeText(this, "请先连接冰箱", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.model:
-                Toast.makeText(this, "请先连接电脑", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "请先连接冰箱", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.clear:
                 Toast.makeText(this, "请先连接冰箱", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.smell:
-                Toast.makeText(this, "请先连接电脑", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "请先连接冰箱", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
