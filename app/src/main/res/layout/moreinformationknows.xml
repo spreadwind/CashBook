@@ -56,6 +56,7 @@
             android:textColor="#dfa946"/>
 
         <TextView
+            android:id="@+id/connect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
@@ -86,6 +87,7 @@
             android:text="本月耗电总额"/>
 
         <TextView
+            android:id="@+id/electricity"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,6 +115,7 @@
             android:text="已连接冰箱数量"/>
 
         <TextView
+            android:id="@+id/refrigeratornumber"
             android:paddingTop="10dp"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
