@@ -15,11 +15,15 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.Gallery;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.winorout.cashbook.ImageAdapter;
 import com.winorout.cashbook.Introduce;
 import com.winorout.cashbook.R;
 import com.winorout.cashbook.accounting.AccountingActivity;
@@ -37,8 +41,9 @@ import java.util.ArrayList;
 import static com.winorout.cashbook.common.MyApplication.dbHelper;
 
 import android.widget.ListView;
+import android.widget.ViewSwitcher;
 
-public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
+public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener ,  AdapterView.OnItemSelectedListener{
 
     public static final int FLAG_FROM_MAINACTIVITY = 0;
 
@@ -70,6 +75,13 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     private TextView total_expenditure; //总支出
     private Handler meHandler;
     private TextView mwebpage;
+
+    private int[]res = {R.drawable.item1,R.drawable.item2,R.drawable.item3,R.drawable.item4};
+    private Gallery gallery;
+
+    private ImageAdapter adapter;
+
+
     /**
      * 滚动显示和隐藏menu时，手指滑动需要达到的速度。
      */
@@ -142,6 +154,10 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        gallery = (Gallery)findViewById(R.id.gallery);
+        adapter = new ImageAdapter(res,this);
+        gallery.setAdapter(adapter);
+
         mSharedPreferences = getSharedPreferences("loginUser", Context.MODE_PRIVATE);//临时存储一些数据
         editor = mSharedPreferences.edit();
         initValues();
@@ -567,4 +583,23 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//        if(i == 1){
+//            Intent z = new Intent(MainActivity.this,Introduce.class);
+//            startActivity(z);
+//        }
+
+        Intent z = new Intent(MainActivity.this,Introduce.class);
+        startActivity(z);
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+
 }
