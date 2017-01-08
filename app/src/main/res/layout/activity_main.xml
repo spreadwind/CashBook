@@ -194,7 +194,7 @@
                 android:layout_marginLeft="25dp"
 
                 android:layout_marginTop="5dp"
-                android:text="运行华为liteos冰箱"
+                android:text="无"
                 android:textColor="#fff"
                 android:textSize="14dp"/>
 
