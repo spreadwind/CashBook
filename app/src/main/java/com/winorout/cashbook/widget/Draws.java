@@ -26,7 +26,7 @@ public class Draws extends View {
     private float percent = 0.5f;
     private RectF rectF;
     private PointF mPointF = new PointF(0, 0);
-    private String temperature = "28C";
+    private String temperature = "28" + "℃";
 
     public Draws(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -69,7 +69,7 @@ public class Draws extends View {
 
         canvas.drawCircle(0, 0, r + 4, mPaint);
 
-        mPaint.setColor(Color.argb(255, 73, 120, 53));
+        mPaint.setColor(Color.argb(255, 169, 150, 115));
 
         canvas.drawCircle(0, 0, r, mPaint);
 
