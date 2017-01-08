@@ -69,7 +69,7 @@ public class Draws extends View {
 
         canvas.drawCircle(0, 0, r + 4, mPaint);
 
-        mPaint.setColor(Color.argb(255, 186, 144, 36));
+        mPaint.setColor(Color.argb(255, 73, 120, 53));
 
         canvas.drawCircle(0, 0, r, mPaint);
 

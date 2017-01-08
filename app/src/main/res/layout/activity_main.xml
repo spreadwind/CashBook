@@ -307,11 +307,6 @@
                 android:layout_height="5dp"
                 android:background="#ffffff"/>
 
-
-
-
-
-
             <ListView
                 android:id="@+id/showinformation"
                 android:layout_width="fill_parent"
