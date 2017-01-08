@@ -339,10 +339,10 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 break;
             case R.id.title:
                 if (mSharedPreferences.getInt("key", titlekey) == 0) {
-                    title.setText("账户余额");
+                    title.setText("我的冰箱");
                     titlekey = 1;
                 } else {
-                    title.setText("天天记账");
+                    title.setText("智能冰箱");
                     titlekey = 0;
                 }
                 editor.putInt("key", titlekey);
