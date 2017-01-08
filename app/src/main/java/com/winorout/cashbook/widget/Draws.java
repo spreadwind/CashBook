@@ -26,6 +26,7 @@ public class Draws extends View {
     private float percent = 0.5f;
     private RectF rectF;
     private PointF mPointF = new PointF(0, 0);
+    private String temperature = "28C";
 
     public Draws(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -68,7 +69,7 @@ public class Draws extends View {
 
         canvas.drawCircle(0, 0, r + 4, mPaint);
 
-        mPaint.setColor(Color.argb(220, 220, 220, 220));
+        mPaint.setColor(Color.argb(255, 186, 144, 36));
 
         canvas.drawCircle(0, 0, r, mPaint);
 
@@ -108,7 +109,7 @@ public class Draws extends View {
         } else {
             mPaint2.setColor(Color.GRAY);
         }
-        canvas.drawPath(mPath, mPaint2); //开始绘制波形进度
+//        canvas.drawPath(mPath, mPaint2); //开始绘制波形进度
         mPath.rewind(); //回收路径设置
 
 
@@ -138,8 +139,16 @@ public class Draws extends View {
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.WHITE);
             float yAxis = -(length - i - 1) * (-top + bottom) + offset;
-            canvas.drawText(strings[i], point.x, point.y + yAxis, paint);
+            paint.setTextSize(25);
+            canvas.drawText(strings[i], point.x, point.y - 25 + yAxis, paint);
+            paint.setTextSize(40);
+            canvas.drawText(temperature, point.x, point.y + 25, paint);
         }
+    }
+
+    public void settemperature(String temperature)
+    {
+        this.temperature = temperature;
     }
 
     /*
